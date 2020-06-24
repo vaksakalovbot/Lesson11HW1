@@ -21,13 +21,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Укажите любое английское слово" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Waf-JN-Tga">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Укажите любое слово" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Waf-JN-Tga">
                                 <rect key="frame" x="16" y="45" width="288" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nb9-2d-w8J">
-                                <rect key="frame" x="16" y="125" width="288" height="423"/>
+                                <rect key="frame" x="16" y="163" width="288" height="385"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -37,35 +37,46 @@
                                 <rect key="frame" x="141.5" y="265.5" width="37" height="37"/>
                             </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k0U-QK-Cey">
-                                <rect key="frame" x="89.5" y="87" width="141" height="30"/>
+                                <rect key="frame" x="89.5" y="125" width="141" height="30"/>
                                 <state key="normal" title="Показать результат"/>
                                 <connections>
                                     <action selector="showResultButtonAction" destination="BYZ-38-t0r" eventType="touchUpInside" id="qFj-T0-gQz"/>
                                 </connections>
                             </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="MHi-nw-rc6">
+                                <rect key="frame" x="16" y="87" width="288" height="32"/>
+                                <segments>
+                                    <segment title="en"/>
+                                    <segment title="ru"/>
+                                </segments>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="Waf-JN-Tga" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="21J-6w-kUT"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="MHi-nw-rc6" secondAttribute="trailing" constant="16" id="8MO-iD-tiT"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="JrB-1d-dDb" secondAttribute="trailing" constant="16" id="9Re-NX-DUP"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Nb9-2d-w8J" secondAttribute="trailing" constant="16" id="9pq-nm-5iy"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Waf-JN-Tga" secondAttribute="trailing" constant="16" id="FLO-qA-cRe"/>
                             <constraint firstItem="k0U-QK-Cey" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="JTv-WZ-8L0"/>
                             <constraint firstItem="Nb9-2d-w8J" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="MLh-Vm-QdU"/>
                             <constraint firstItem="Waf-JN-Tga" firstAttribute="top" secondItem="JrB-1d-dDb" secondAttribute="bottom" constant="8" id="Mor-2W-gZP"/>
-                            <constraint firstItem="k0U-QK-Cey" firstAttribute="top" secondItem="Waf-JN-Tga" secondAttribute="bottom" constant="8" id="WNc-lw-BUS"/>
+                            <constraint firstItem="MHi-nw-rc6" firstAttribute="top" secondItem="Waf-JN-Tga" secondAttribute="bottom" constant="8" id="SFT-Gy-Ujk"/>
+                            <constraint firstItem="k0U-QK-Cey" firstAttribute="top" secondItem="MHi-nw-rc6" secondAttribute="bottom" constant="7" id="WNc-lw-BUS"/>
                             <constraint firstItem="6mK-yX-Ln2" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Y9x-b2-SBp"/>
                             <constraint firstItem="Nb9-2d-w8J" firstAttribute="top" secondItem="k0U-QK-Cey" secondAttribute="bottom" constant="8" id="YWo-oP-0Mg"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Nb9-2d-w8J" secondAttribute="bottom" constant="20" id="ZLY-nI-ofF"/>
                             <constraint firstItem="JrB-1d-dDb" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="Zmj-4K-c2v"/>
                             <constraint firstItem="JrB-1d-dDb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="ccJ-Lu-Aa8"/>
                             <constraint firstItem="6mK-yX-Ln2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="msh-Xf-z9d"/>
+                            <constraint firstItem="MHi-nw-rc6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="nrQ-zk-gjR"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="activityIndicatorView" destination="6mK-yX-Ln2" id="YaE-gl-TCc"/>
                         <outlet property="dictionaryWordTextField" destination="Waf-JN-Tga" id="JZl-iV-DZD"/>
+                        <outlet property="languageSegmentedControl" destination="MHi-nw-rc6" id="6z0-Au-5PS"/>
                         <outlet property="resultTextView" destination="Nb9-2d-w8J" id="oq1-xd-MyJ"/>
                     </connections>
                 </viewController>

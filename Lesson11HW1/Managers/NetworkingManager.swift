@@ -14,19 +14,20 @@ class NetworkingManager {
     
     private init() {}
 
-    func alamofireFetchDataFromDictionaryApi(with word: String, completion: @escaping (String)->()) {
+    func alamofireFetchDataFromDictionaryApi(with word: String, language: String, completion: @escaping (String)->()) {
         
-        let jsonUrl = "https://api.dictionaryapi.dev/api/v1/entries/en/\(word.trimmingCharacters(in: [" "]))"
-
-        AF.request(jsonUrl)
+        let jsonUrl = "https://api.dictionaryapi.dev/api/v1/entries/\(language)/\(word.trimmingCharacters(in: [" "]))"
+        let url = jsonUrl.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!
+        
+        AF.request(url)
             .validate()
             .responseJSON { response in
                 switch response.result {
                 case .success(let value):
+                    print(value)
                     let wordInDictionary = WordInDictionary.getWords(from: value) ?? []
                     completion("\(wordInDictionary.first?.showResult() ?? "Nothing")")
                 case .failure(let error):
-                    print(error)
                     completion(error.localizedDescription)
                 }
         }

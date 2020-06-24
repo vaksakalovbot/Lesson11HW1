@@ -13,6 +13,7 @@ class MainViewController: UIViewController {
     @IBOutlet var dictionaryWordTextField: UITextField!
     @IBOutlet var resultTextView: UITextView!
     @IBOutlet var activityIndicatorView: UIActivityIndicatorView!
+    @IBOutlet var languageSegmentedControl: UISegmentedControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,9 +30,12 @@ class MainViewController: UIViewController {
         resultTextView.text = ""
         activityIndicatorView.startAnimating()
         
-        NetworkingManager.shared.alamofireFetchDataFromDictionaryApi(with: dictionaryWordTextField.text ?? "", completion: { message in
-                DispatchQueue.main.async {
-                    self.activityIndicatorView.stopAnimating()
+        NetworkingManager.shared.alamofireFetchDataFromDictionaryApi(
+            with: dictionaryWordTextField.text ?? "",
+            language: languageSegmentedControl.titleForSegment(at: languageSegmentedControl.selectedSegmentIndex) ?? "en",
+            completion: { message in
+            DispatchQueue.main.async {
+            self.activityIndicatorView.stopAnimating()
                     self.resultTextView.text = "\(message)"
                 }
             })

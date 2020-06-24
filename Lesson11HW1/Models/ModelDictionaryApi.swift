@@ -50,6 +50,10 @@ struct Meaning: Decodable {
     let adverb: [Example]?
     let intransitiveVerb: [Example]?
     let exclamation: [Example]?
+    let kindRuOne: [Example]?
+    let kindRuTwo: [Example]?
+    let kindRuThree: [Example]?
+
 
     init(dictMeaning: [String: Any]) {
         noun = Example.getExamples(from: dictMeaning["noun"])
@@ -57,6 +61,9 @@ struct Meaning: Decodable {
         adverb = Example.getExamples(from: dictMeaning["adverb"])
         intransitiveVerb = Example.getExamples(from: dictMeaning["intransitive verb"])
         exclamation = Example.getExamples(from: dictMeaning["exclamation"])
+        kindRuOne = Example.getExamples(from: dictMeaning["Женский род"])
+        kindRuTwo = Example.getExamples(from: dictMeaning["Мужской род"])
+        kindRuThree = Example.getExamples(from: dictMeaning["Средний род"])
     }
         
     // Здесь такой сложный алгоритм формирования текстовой строки,
@@ -93,6 +100,24 @@ struct Meaning: Decodable {
                 resultString += "\n\(example.showResult())"
             }
         }
+        if let kindRuOne = kindRuOne {
+            resultString += "\nЖенский род:"
+            for example in kindRuOne {
+                resultString += "\n\(example.showResult())"
+            }
+        }
+        if let kindRuTwo = kindRuTwo {
+            resultString += "\nМужской род:"
+            for example in kindRuTwo {
+                resultString += "\n\(example.showResult())"
+            }
+        }
+        if let kindRuThree = kindRuThree {
+            resultString += "\nСредний род:"
+            for example in kindRuThree {
+                resultString += "\n\(example.showResult())"
+            }
+        }
         return resultString
     }
 }
@@ -101,11 +126,13 @@ struct Example: Decodable {
     let definition: String?
     let example: String?
     let synonyms: [String]?
+    let antonyms: [String]?
     
     init(dictExample: [String: Any]) {
         definition = dictExample["definition"] as? String
         example = dictExample["example"] as? String
         synonyms = dictExample["synonyms"] as? [String]
+        antonyms = dictExample["antonyms"] as? [String]
     }
     
     static func getExamples(from value: Any?) -> [Example]? {
@@ -121,12 +148,24 @@ struct Example: Decodable {
             resultString += "Definition: \(definition)\n"
         }
         if let example = example {
-            resultString += "\nExample: \(example)\n"
+            if example.count > 0 {
+                resultString += "\nExample: \(example)\n"
+            }
         }
         if let synonyms = synonyms {
-            resultString += "\nSynonyms:"
-            for item in synonyms {
-                resultString += "\n\(item)"
+            if synonyms.count > 0 {
+                resultString += "\nSynonyms:"
+                for item in synonyms {
+                    resultString += "\n\(item)"
+                }
+            }
+        }
+        if let antonyms = antonyms {
+            if antonyms.count > 0 {
+                resultString += "\nAntonyms:"
+                for item in antonyms {
+                    resultString += "\n\(item)"
+                }
             }
         }
         return resultString
