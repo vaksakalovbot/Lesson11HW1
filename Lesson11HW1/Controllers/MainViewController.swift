@@ -29,14 +29,13 @@ class MainViewController: UIViewController {
         resultTextView.text = ""
         activityIndicatorView.startAnimating()
         
-            
-            DispatchQueue.main.async {
-                self.activityIndicatorView.stopAnimating()
-                self.resultTextView.text = ""
-            }
-            
+        NetworkingManager.shared.alamofireFetchDataFromDictionaryApi(with: dictionaryWordTextField.text ?? "", completion: { message in
+                DispatchQueue.main.async {
+                    self.activityIndicatorView.stopAnimating()
+                    self.resultTextView.text = "\(message)"
+                }
+            })
     }
-    
 }
 
 extension MainViewController: UITextFieldDelegate {

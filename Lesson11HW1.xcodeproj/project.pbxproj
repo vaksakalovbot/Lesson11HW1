@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -52,7 +52,6 @@
 				FE6346D4C7A78B51100FA6F0 /* Pods-Lesson11HW1.debug.xcconfig */,
 				2214B36EA4FB038A1A46911A /* Pods-Lesson11HW1.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -62,6 +61,57 @@
 				B006C1696D79C6C565378C39 /* Pods_Lesson11HW1.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D4833E5F24A38C9A00F5288B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D4880EB024A369DB004716C6 /* ModelDictionaryApi.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		D4833E6024A38CAB00F5288B /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				D4880EB224A36A3B004716C6 /* NetworkingManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		D4833E6124A38CC100F5288B /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D4880EA024A35F55004716C6 /* MainViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		D4833E6224A38CDA00F5288B /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				D4880EA224A35F55004716C6 /* Main.storyboard */,
+				D4880EA724A35F56004716C6 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		D4833E6324A38CED00F5288B /* Media */ = {
+			isa = PBXGroup;
+			children = (
+				D4880EA524A35F56004716C6 /* Assets.xcassets */,
+			);
+			path = Media;
+			sourceTree = "<group>";
+		};
+		D4833E6424A38D0300F5288B /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				D4880EAA24A35F56004716C6 /* Info.plist */,
+				D4880E9C24A35F55004716C6 /* AppDelegate.swift */,
+				D4880E9E24A35F55004716C6 /* SceneDelegate.swift */,
+			);
+			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
 		D4880E9024A35F55004716C6 = {
@@ -85,15 +135,12 @@
 		D4880E9B24A35F55004716C6 /* Lesson11HW1 */ = {
 			isa = PBXGroup;
 			children = (
-				D4880E9C24A35F55004716C6 /* AppDelegate.swift */,
-				D4880E9E24A35F55004716C6 /* SceneDelegate.swift */,
-				D4880EA024A35F55004716C6 /* MainViewController.swift */,
-				D4880EB224A36A3B004716C6 /* NetworkingManager.swift */,
-				D4880EB024A369DB004716C6 /* ModelDictionaryApi.swift */,
-				D4880EA224A35F55004716C6 /* Main.storyboard */,
-				D4880EA524A35F56004716C6 /* Assets.xcassets */,
-				D4880EA724A35F56004716C6 /* LaunchScreen.storyboard */,
-				D4880EAA24A35F56004716C6 /* Info.plist */,
+				D4833E6124A38CC100F5288B /* Controllers */,
+				D4833E6024A38CAB00F5288B /* Managers */,
+				D4833E5F24A38C9A00F5288B /* Models */,
+				D4833E6224A38CDA00F5288B /* Storyboards */,
+				D4833E6324A38CED00F5288B /* Media */,
+				D4833E6424A38D0300F5288B /* SupportingFiles */,
 			);
 			path = Lesson11HW1;
 			sourceTree = "<group>";
@@ -364,7 +411,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 883VHW277J;
-				INFOPLIST_FILE = Lesson11HW1/Info.plist;
+				INFOPLIST_FILE = Lesson11HW1/SupportingFiles/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -384,7 +431,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 883VHW277J;
-				INFOPLIST_FILE = Lesson11HW1/Info.plist;
+				INFOPLIST_FILE = Lesson11HW1/SupportingFiles/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
