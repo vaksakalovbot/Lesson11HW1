@@ -34,11 +34,13 @@ class MainViewController: UIViewController {
             with: dictionaryWordTextField.text ?? "",
             language: languageSegmentedControl.titleForSegment(at: languageSegmentedControl.selectedSegmentIndex) ?? "en",
             completion: { message in
-            DispatchQueue.main.async {
-            self.activityIndicatorView.stopAnimating()
+                
+                DispatchQueue.main.async {
+                    self.activityIndicatorView.stopAnimating()
                     self.resultTextView.text = "\(message)"
                 }
-            })
+                
+        })
     }
 }
 

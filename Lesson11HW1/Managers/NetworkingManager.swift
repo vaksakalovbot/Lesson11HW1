@@ -17,9 +17,9 @@ class NetworkingManager {
     func alamofireFetchDataFromDictionaryApi(with word: String, language: String, completion: @escaping (String)->()) {
         
         let jsonUrl = "https://api.dictionaryapi.dev/api/v1/entries/\(language)/\(word.trimmingCharacters(in: [" "]))"
-        let url = jsonUrl.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!
+        let urlString = jsonUrl.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!              // Для поддержки кириллицы в запросах
         
-        AF.request(url)
+        AF.request(urlString)
             .validate()
             .responseJSON { response in
                 switch response.result {
